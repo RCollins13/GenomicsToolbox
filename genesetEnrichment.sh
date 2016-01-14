@@ -79,4 +79,4 @@ p=$( echo "scale=10;($( awk -v ovr=${ovr} '{ if ($1>=ovr) print $0 }' ${l2p} | w
 EOF
 
 #Clean up
-rm -f ${rand} ${l1p} ${l2p}
+rm -f ${l1p} ${l2p}
