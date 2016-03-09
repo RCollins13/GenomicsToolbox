@@ -19,4 +19,5 @@ REF_LIST            List of all genes eligible for permutation (required)
 ```
 **Usage Notes:**  
 1a. Gene symbols in each list won't be sanity checked.  
-1b. Gene lists don't even have to be gene symbols, so this script can be used to run an enrichment permutation between any two sets of strings.
+1b. LIST1 and LIST2 don't even have to contain gene symbols; this script could theoretically be used to run an enrichment permutation between any two sets of strings.
+2. Whitespace not permitted in elements of LIST1 and LIST2.
