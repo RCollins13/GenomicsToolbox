@@ -1,5 +1,5 @@
 # ScriptToolbox
-Toolbox of various utility genomics scripts
+A carpenter's belt of assorted genomics and bioinformatics utilities
 
 **Contact:** Ryan Collins (rcollins@chgr.mgh.harvard.edu)
 
