@@ -3,7 +3,7 @@
 #Distributed under terms of the MIT license
 
 #Script to perform a pairwise enrichment test for a pair of gene lists
-#Bidirectional performs one test:
+#Pairwise performs one test:
 # 1) Probability of observed overlap of set A and set B versus random chance
 
 #Usage
