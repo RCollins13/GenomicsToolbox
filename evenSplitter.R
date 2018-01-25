@@ -48,6 +48,8 @@ PREFIX <- args$args[2]
 #Clean options
 shuf <- args$options$shuffle
 quiet <- args$options$quiet
+target.lines <- args$options$targetLines
+target.splits <- args$options$targetSplits
 
 
 #######################
