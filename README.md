@@ -1,9 +1,9 @@
-# ScriptToolbox
+# Genomics Toolbox
 An expanding carpenter's belt of assorted genomics and bioinformatics utilities
 
-**Contact:** Ryan Collins (rcollins@chgr.mgh.harvard.edu)
+**Contact:** Ryan Collins (rlcollins@g.harvard.edu)
 
-All code copyright (c) 2016 Ryan Collins and is distributed under terms of the MIT license.  
+All code copyright (c) 2016-2019 Ryan Collins and is distributed under terms of the MIT license.  
 
 ---  
 ## Table of Contents  
