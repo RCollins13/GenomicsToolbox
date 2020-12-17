@@ -3,7 +3,7 @@ A slowly expanding carpenter's belt of assorted genomics and bioinformatics util
 
 **Contact:** Ryan Collins (rlcollins@g.harvard.edu)
 
-All code copyright (c) 2016-Present Ryan Collins and is distributed under terms of the MIT license.  
+All code copyright (c) 2016-present Ryan Collins and is distributed under terms of the MIT license.  
 
 ---  
 ## Table of Contents  
@@ -90,9 +90,13 @@ optional arguments:
                         Specify column number corresponding to author
                         initials. [default: create initials from first three
                         columns]
+  -s, --sort-contribution-categories
+                        Alphabetically sort contribution categories. [default:
+                        False]
   -o OUTFILE, --outfile OUTFILE
                         Path to output file. [default: stdout]
 ```
+
 **Usage Notes:**  
 1. Input .tsv expects first four columns to be first name, middle initial, last name, and initials, but this can be changed with `--ignore-first-n`.  
 2. Designed with the [CRediT Taxonomy](http://credit.niso.org/) in mind, but can be adapted to other formats.  

@@ -19,7 +19,7 @@ import argparse
 from sys import stdout
 
 
-def make_contribs_dict(tsv_in, ignore=4, initials_col=None):
+def make_contribs_dict(tsv_in, ignore=4, initials_col=None, sort_categories=False):
     """
     Convert input author contributions .tsv to dict mapping contribution 
     categories to author initials
@@ -29,6 +29,8 @@ def make_contribs_dict(tsv_in, ignore=4, initials_col=None):
 
         # Read first line of tsv_in to get contribution categories
         categs = f.readline().rstrip().split('\t')[ignore:]
+        if sort_categories:
+            categs.sort()
         contrib_dict = {categ : [] for categ in categs}
 
         # Read remaining lines assuming one row per author
@@ -60,6 +62,9 @@ def main():
     parser.add_argument('-c', '--initials-column', type=int, default=None,
                         help='Specify column number corresponding to author initials. ' +
                         '[default: create initials from first three columns]')
+    parser.add_argument('-s', '--sort-contribution-categories', action='store_true',
+                        help='Alphabetically sort contribution categories. ' +
+                        '[default: False]')
     parser.add_argument('-o', '--outfile', help='Path to output file. [default: ' +
                         'stdout]', default='stdout')
     args = parser.parse_args()
@@ -71,8 +76,8 @@ def main():
         outfile = open(args.outfile, 'w')
 
     # Load contributions matrix
-    contribs = make_contribs_dict(args.tsv_in, args.ignore_first_n, 
-                                  args.initials_column)
+    contribs = make_contribs_dict(args.tsv_in, args.ignore_first_n, args.initials_column, 
+                                  args.sort_contribution_categories)
 
     # Write to outfile
     for categ, initials in contribs.items():
