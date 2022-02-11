@@ -10,11 +10,22 @@ All code copyright (c) 2016-present Ryan Collins and is distributed under terms 
 #### Script documentation  
 - [bidirectionalEnrichment.sh](https://github.com/RCollins13/ScriptToolbox#bidirectionalenrichmentsh)  
 - [evenSplitter.R](https://github.com/RCollins13/ScriptToolbox#evensplitterr)
+- [formatAuthorlist.py](https://github.com/RCollins13/ScriptToolbox#formatauthorlistpy)
 - [formatContributions.py](https://github.com/RCollins13/ScriptToolbox#formatcontributionspy)
 - [pairwiseEnrichment.sh](https://github.com/RCollins13/ScriptToolbox#pairwiseenrichmentsh)  
 
 #### Examples  
-- Will be added eventually  
+
+Example usage for [formatAuthorlist.py](https://github.com/RCollins13/ScriptToolbox#formatauthorlistpy):  
+```
+./formatAuthorlist.py \
+	example_files/example_authors.tsv \
+	example_files/example_affiliations.tsv \
+> formatted_author_list.html
+```
+
+After running the above, open `formatted_author_list.html` in your favorite web browser and copy directly into your manuscript!  
+
 --- 
 
 ## bidirectionalEnrichment.sh  
@@ -66,6 +77,31 @@ Options:
 1. Must specify either `--targetLines` or `--targetSplits`, but not both.
 2. If `--targetLines` is specified, optimal number of partitions will be automatically determined.  
 3. If `--targetSplits` is specified, optimal number of lines per partition will be automatically determined.  
+
+--- 
+
+## formatAuthorlist.py  
+Format an author list with numeric affiliations for a manuscript.  
+
+Expects two .tsvs as inputs:
+1. `authors.tsv`: two-column .tsv with author name (first column) and comma-delimited list of affiliation keys (second column). Authors must be listed in desired order of output. Affiliation keys need not be sorted or ordered.
+2. `affiliations.tsv`: two-column .tsv with affiliation key (first column) and affiliation for output.  
+
+Outputs an .html file of formatted authors and affiliations
+
+```
+usage: formatAuthorlist.py [-h] [--plaintext-out] authors affiliations
+
+Format an author list with numeric affiliations for a manuscript
+
+positional arguments:
+  authors          .tsv of authors and affiliation keys
+  affiliations     .tsv of affiliation keys and affiliations
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --plaintext-out  Do not format output as html
+```
 
 --- 
 
