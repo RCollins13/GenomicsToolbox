@@ -34,7 +34,6 @@ def load_authors(authors_in, affils):
     authors = {}
     revised_affils = {}
     affil_map = {}
-    nonnumeric_affils = set()
 
     with open(authors_in) as fin:
         for author, akeys_raw in csv.reader(fin, delimiter='\t'):
@@ -52,7 +51,6 @@ def load_authors(authors_in, affils):
                         affil_map[akey] = new_akey
                     else:
                         new_akey = akey
-                        nonnumeric_affils.add(new_akey)
                     revised_affils[new_akey] = affils[akey]
                     new_akeys.append(new_akey)
 
