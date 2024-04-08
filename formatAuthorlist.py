@@ -84,7 +84,8 @@ def print_authors(authors, plaintext_out=False):
         print('<br />' * 2)
 
 
-def print_affils(affils, plaintext_out=False, numeric_first=True):
+def print_affils(affils, plaintext_out=False, numeric_first=True, 
+                 superscript_index=False):
     """
     Reformat affiliations into list of numbered strings and print to stdout
     """
@@ -93,10 +94,16 @@ def print_affils(affils, plaintext_out=False, numeric_first=True):
         for is_num in [True, False]:
             for i, aff in affils.items():
                 if str(i).isdigit() == is_num:
-                    print('. '.join([str(i), aff]), end='\n<br />')
+                    if superscript_index:
+                        print('<sup>{}</sup> {}'.format(str(i), aff), end='\n<br />')
+                    else:
+                        print('. '.join([str(i), aff]), end='\n<br />')
     else:
         for i, aff in affils.items():
-            print('. '.join([str(i), aff]), end='\n<br />')
+            if superscript_index:
+                print('<sup>{}</sup> {}'.format(str(i), aff), end='\n<br />')
+            else:
+                print('. '.join([str(i), aff]), end='\n<br />')
 
     if plaintext_out:
         print('')
@@ -112,6 +119,9 @@ def main():
     parser.add_argument('affiliations', help='.tsv of affiliation keys and affiliations')
     parser.add_argument('--plaintext-out', help='Do not format output as html',
                         action='store_true')
+    parser.add_argument('--superscript-affiliation-legend', help='List affiliations ' +
+                        'with numeric superscripts (Science/AAAS format)',
+                        action='store_true')
     args = parser.parse_args()
 
     # Load affiliations
@@ -122,7 +132,8 @@ def main():
 
     # Print revised authors and affiliations
     print_authors(revised_authors, args.plaintext_out)
-    print_affils(revised_affils, args.plaintext_out)
+    print_affils(revised_affils, args.plaintext_out, 
+                 superscript_index=args.superscript_affiliation_legend)
 
 
 if __name__ == '__main__':
